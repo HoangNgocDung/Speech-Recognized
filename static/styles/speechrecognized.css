@@ -1,0 +1,19 @@
+body {
+    text-align: center;
+    background: url('anh.jpg');
+}
+
+h2 {
+    font-size: 30px;
+}
+h1 {
+    font-size: 40px;
+}
+
+.btn {
+    background-color: #385898;
+    border-radius: 5px;
+    padding: 10px 15px;
+    color: white;
+}
+
