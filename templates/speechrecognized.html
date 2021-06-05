@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet"  href="{{ url_for('static', filename='styles/speechrecognized.css') }}">
+    <title>Speech Recognized</title>
+</head>
+<body>
+    <h1 style="margin: 100px 0px 50px;"> Nhận dạng giọng nói </h1>
+
+    <hr style="width: 30%">
+
+    <h2> Upload file ghi âm </h2>
+    <p> Tải lên file (.wav, .mp3)</p>
+    <form method="post" enctype="multipart/form-data">
+        <input type="file" name="file"/><br><br>
+        <input class="btn" type="submit" name="submitButton" value="Transcribe">
+    </form>
+
+    {% if audio_path != None %}
+    <audio controls autoplay>
+        <source src= "{{audio_path}}" type="audio/wav">
+    </audio>
+    {% endif %}
+
+    {% if transcript != "" %}
+    <div id="speechTranscriptContainer">
+        <h1>Transcript</h1>
+        <p id="speechText">{{ transcript }}</p>
+    </div>
+    {% endif %} 
+
+    <hr style="width: 50%">
+
+    <h2>Ghi âm</h2>
+    <p> Ghi âm trực tiếp bằng microphone </p>
+    <form action="" method="GET"> 
+        <input class="btn" type="submit" value="Bắt đầu ghi âm"/>
+    </form>
+
+    {% if text != "" %}
+        <div id="speechTranscriptContainer1">
+            <h1>Transcript</h1>
+            <p id="speechText">{{ text }}</p>
+        </div>
+    {% endif %}
+
+
+</body>
+</html>
